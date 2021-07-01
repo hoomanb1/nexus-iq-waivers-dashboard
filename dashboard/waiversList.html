@@ -17,7 +17,7 @@ $(document).ready(function(e){
   const d = new Date();
   document.getElementById("runtime").innerHTML = d;
 
-let url = 'http://localhost:3000'
+var url = 'http://localhost:3000'
 let username = 'admin'
 let password = 'admin'
 let headers = new Headers();
@@ -34,8 +34,6 @@ fetch( url + '/api/v2/reports/components/waivers',{ method: 'GET', headers: head
   })
   .then(function(json) {
      applicationWaivers = json.applicationWaivers;
-
-     // console.log(applicationWaivers);
 
      repoWaivers = json.repositoryWaivers;
      for (var i = 0; i < applicationWaivers.length; i ++) {
@@ -121,7 +119,7 @@ fetch( url + '/api/v2/reports/components/waivers',{ method: 'GET', headers: head
           } else if (item.color == 'red' && field == 'fixedVersion') {
             row += '<td bgcolor="#C80000">' + item[field+''] + '</td>';
           } else if (field == 'actionButton') {
-            row += '<td><button onclick="deletePolicyWaiver(this)" type="button" class="" value="'+ item.app_internal_id + ':' + item.policyWaiverId +'">Release</button></td>';
+            row += '<td><button onclick="deletePolicyWaiver(this)" type="button" class="" value="'+ item.app_internal_id + ';' + item.policyWaiverId + ';'+ url +'">Release</button></td>';
           } else if ((item.policy_name == 'Security-Critical' || item.policy_name == 'Security-High'
             || item.policy_name == 'License-Banned' || item.policy_name == 'License-None'
             || item.policy_name == 'License-Copyleft') && field == 'policy_name') {
@@ -144,9 +142,8 @@ fetch( url + '/api/v2/reports/components/waivers',{ method: 'GET', headers: head
 });
 
   function deletePolicyWaiver(el) {
-    var res = el.value.split(":");
-
-    const response = release('http://localhost:3000/api/v2/policyWaivers/application/' + res[0] + '/' + res[1])
+    var res = el.value.split(";");
+    const response = release(res[2] + '/api/v2/policyWaivers/application/' + res[0] + '/' + res[1])
     response.then(function(data){
       if (data.status == 204) {
         alert("Policy waiver released, next evaluation of this application should show this component as violation against this policy");
