@@ -10,7 +10,7 @@ The utility requires a nodejs as a dependency if the intention is to directly in
 
 ## Nodejs Reverse Proxy
 
-If you choose to use the dashboard’s default nodejs reverse proxy, below is the directory structure of the server:
+If you choose to use the dashboard’s default nodejs reverse proxy, below is the instructions to build and run it.
 
 ### Building the reverse proxy
 Please run the following command to build the project and have necessary dependencies available:
