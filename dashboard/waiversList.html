@@ -74,6 +74,10 @@ fetch( url + '/api/v2/reports/components/waivers',{ method: 'GET', headers: head
        let allRemediationData = [];
 
        for (var i = 0; i < appWaiverList.length; i++) {
+         if (appWaiverList[i].policy_name == 'Component-Unknown') {
+           continue;
+         }
+
          const response = await getRemediation(url + '/api/v2/components/remediation/application/' +
          appWaiverList[i].app_internal_id + '?stageId=' + stage.stageId, {"packageUrl": appWaiverList[i].component_packageUrl});
 
