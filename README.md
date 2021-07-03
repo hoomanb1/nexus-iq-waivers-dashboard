@@ -71,4 +71,4 @@ If you have configured all the above steps you should now be able to open the ht
 
 ![Screen Shot 2021-07-01 at 1 55 59 pm](https://user-images.githubusercontent.com/3271380/124068765-734b9600-da7e-11eb-9690-4d6a524e7e02.png)
 
-**I'd appreciate your feedbacks, so please raised them under the issue section**
+**All contributions and feedback are welcome!**
