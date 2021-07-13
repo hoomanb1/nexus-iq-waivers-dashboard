@@ -2,7 +2,7 @@
 
 At the moment Nexus IQ Server allows violating components to be waived against policies. What this means is that when these components are being evaluated as a part of the application, there won’t be any policy violation against the policies that these components are waived for.   
 
-When waiving components at scale for hundreds or thousands applications loaded into the IQ Server it might be a little hard to have a single snapshot view of all the components that have been waived against each policy. This utility application / dashboard allows teams to be able to review all the waived application components against any IQ policies.
+When waiving components at scale for hundreds or thousands of applications loaded into the IQ Server it might be a little hard to have a single snapshot view of all the components that have been waived against each policy. This utility application / dashboard allows teams to be able to review all the waived application components against any IQ policies.
 
 ## Installation
 
